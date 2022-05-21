@@ -1,13 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { makeServer } from "./server";
+import reportWebVitals from "./reportWebVitals";
+import { VideoDataProvider } from "./Context/video-context";
+makeServer();
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <VideoDataProvider>
+      <App />
+    </VideoDataProvider>
   </React.StrictMode>
 );
 
