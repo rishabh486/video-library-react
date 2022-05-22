@@ -14,8 +14,7 @@ function VideoCard() {
          <div className="cards-example card-margin">
             <div className="wrapper">
                 <div className="top">
-                    <img
-                        src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                <iframe width="100%" height="200" src={videos.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div className="top-1">
                     <h1>{videos.title}</h1>

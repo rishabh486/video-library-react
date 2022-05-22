@@ -11,6 +11,7 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.",
     creator: "Traversy Media",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
   {
     _id: uuid(),
@@ -19,6 +20,7 @@ export const videos = [
     creator: "Dev Ed",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
   {
     _id: uuid(),
@@ -27,6 +29,7 @@ export const videos = [
     creator: "Dev Ed",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
   {
     _id: uuid(),
@@ -35,6 +38,7 @@ export const videos = [
     creator: "Dev Ed",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
   {
     _id: uuid(),
@@ -43,6 +47,7 @@ export const videos = [
     creator: "Dev Ed",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
   {
     _id: uuid(),
@@ -51,6 +56,7 @@ export const videos = [
     creator: "Dev Ed",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
   {
     _id: uuid(),
@@ -59,5 +65,24 @@ export const videos = [
     creator: "Dev Ed",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
+  },
+  {
+    _id: uuid(),
+    title: "Neural Networks from Scratch .",
+    categoryName: "algorithms",
+    creator: "Dev Ed",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
+  },
+  {
+    _id: uuid(),
+    title: "Neural Networks from Scratch .",
+    categoryName: "algorithms",
+    creator: "Dev Ed",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
+    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
   },
 ];
