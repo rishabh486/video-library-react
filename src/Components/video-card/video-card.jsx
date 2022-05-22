@@ -2,6 +2,7 @@ import React from 'react'
 import "./video-card.css"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
+import { favourite_icon } from "../../Assests/index";
 function VideoCard() {
     const{video,state} =useVideo()
     const {filter}=state
@@ -40,7 +41,7 @@ function VideoCard() {
             </div>
             <div className="round-image">
                 <img className="round"
-                    src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
+                    src={favourite_icon} />
 
             </div>
         </div>
