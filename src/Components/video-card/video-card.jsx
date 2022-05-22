@@ -1,9 +1,14 @@
 import React from 'react'
 import "./video-card.css"
+import {useNavigate} from "react-router-dom"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
 import { favourite_icon } from "../../Assests/index";
 function VideoCard() {
+    const naviagte=useNavigate()
+    function redirectToSinglePage(id){
+        naviagte(`/single-video/${id}`)
+    }
     const{video,state} =useVideo()
     const {filter}=state
     const{categoryName}=filter
@@ -29,6 +34,7 @@ function VideoCard() {
                    
                     <div class="card-button">
             <button
+            onClick={()=>redirectToSinglePage(videos._id)}
                 class="button-container-button primary-button cart"
               >WATCH NOW</button>  
               

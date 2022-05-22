@@ -5,13 +5,16 @@ import App from "./App";
 import { makeServer } from "./server";
 import reportWebVitals from "./reportWebVitals";
 import { VideoDataProvider } from "./Context/video-context";
+import { BrowserRouter as Router } from "react-router-dom";
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <VideoDataProvider>
-      <App />
-    </VideoDataProvider>
+    <Router>
+      <VideoDataProvider>
+        <App />
+      </VideoDataProvider>
+    </Router>
   </React.StrictMode>
 );
 

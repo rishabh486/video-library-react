@@ -1,0 +1,9 @@
+.single-page-video{
+    display:flex;
+    justify-content: space-around;
+}
+.single-card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
