@@ -1,11 +1,15 @@
 import React from 'react'
 import "./video-card.css"
 import {useVideo} from "../../Context/video-context"
+import {filterByCategory} from "../../Reducers/filter"
 function VideoCard() {
-    const{videos} =useVideo()
-    console.log(videos)
+    const{video,state} =useVideo()
+    const {filter}=state
+    const{categoryName}=filter
+    const CategoryData=filterByCategory(video,categoryName)
   return (
-    <div>
+    <div className='video-card'>
+        {CategoryData.map((videos)=>(
          <div className="cards-example card-margin">
             <div className="wrapper">
                 <div className="top">
@@ -13,12 +17,12 @@ function VideoCard() {
                         src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg" />
                 </div>
                 <div className="top-1">
-                    <h1>Our Changing Planet</h1>
-                    <p>by Kurt Wagner</p>
+                    <h1>{videos.title}</h1>
+                    <p>{videos.creator}</p>
                 </div>
                 <div className="top-2">
                     <p>
-                        Visit ten places on our planet that are undergoing the biggest changes today.
+                    {videos.description}
                     </p>
                 </div>
                 <div className="top-3">
@@ -40,6 +44,7 @@ function VideoCard() {
 
             </div>
         </div>
+       ) )}
     </div>
   )
 }

@@ -1,11 +1,18 @@
 import React from "react";
+import Navbar from "../../Components/Navbar/navbar";
+import Sidebar from "../../Components/Sidebar/sidebar";
 import VideoCard from "../../Components/video-card/video-card";
+import "./VideoPage.css";
 
 function VideoPage() {
   return (
-    <div>
-      <VideoCard />
-    </div>
+    <>
+      <Navbar />
+      <Sidebar />
+      <div className="video-flex">
+        <VideoCard />
+      </div>
+    </>
   );
 }
 

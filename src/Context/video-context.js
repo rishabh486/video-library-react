@@ -21,7 +21,6 @@ const VideoDataProvider = ({ children }) => {
   const getData = async () => {
     try {
       const response = await axios.get("/api/videos");
-      console.log(response.data.videos);
       const responseData = [...response.data.videos];
       setVideo((previous) => (previous = responseData));
     } catch (e) {
