@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  :root {
+    font-size: 62.5%;
+    --primary-color: #49a0eb;
+    --secondary-color: #63edff;
+    --icon-button-color: #333333;
+    --icon-button-bg-color: lavenderblush;
+  }
+  a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+  }
+  .navbar {
+    width: 100%;
+    height: 10vh;
+    margin-top:-10vh;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+     z-index: 999; 
+  }
+  .navbar .brand {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 2rem;
+    color: black;
+    margin-left: 2rem;
+  }
+  
+  .navbar .leftside {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 0;
+    flex: 60%;
+  }
+  .navbar .leftside .links {
+    display: flex;
+  }
+  .navbar .leftside .links a {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    margin-left: 3rem;
+  }
+  .navbar .rightside {
+    display: flex;
+    flex: 50%;
+    max-height: 8rem;
+    align-items: center;
+    margin-right: 1rem;
+    justify-content: flex-end;
+  }
+  .navbar .rightside input {
+    width: 25rem;
+    height: 3.5rem;
+  }
+  .navbar .rightside button {
+    height: 3.65rem;
+    width: 5rem;
+    background-color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+  }
+  :root {
+    font-size: 62.5%;
+  }
+  .badges-component {
+    display: flex;
+    justify-content: space-around;
+  }
+  .notification {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+  }
+  .icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    color: var(--icon-button-color);
+    background: var(--icon-button-bg-color);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+  }
+  .icon-img {
+    width: 100%;
+  }
+  .icon-badge-number {
+    position: absolute;
+    top: 0;
+    right: 0rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  .logout-button{
+      border:none;
+      background-color:none;
+      height:2rem;
+      align-self: center;
+      cursor:pointer;
+      font-size:2rem;
+  }
+  
