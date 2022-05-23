@@ -3,7 +3,15 @@ import "../../Components/video-card/video-card.css";
 import "./SingleVideoPage.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useVideo } from "../../Context/video-context";
+import {
+  favourite_icon,
+  like_icon,
+  watchlater_icon,
+} from "../../Assests/index";
+import { AddToWatchLater, AddToLikedVideo } from "../../Reducers/watch-later";
+import { useWatchLater } from "../../Context/watchLater-context";
 function SingleVideo() {
+  const { dispatch } = useWatchLater();
   const naviagte = useNavigate();
   function redirectToSinglePage(id) {
     naviagte(`/single-video/${id}`);
@@ -13,11 +21,8 @@ function SingleVideo() {
   let { videoid } = useParams();
   useEffect(() => {
     const currentVideo_ = video.find((o) => o._id === videoid);
-    console.log(currentVideo_);
     setcurrentVideo(currentVideo_);
   }, [videoid]);
-
-  console.log(videoid);
 
   return (
     <div className="single-page-video">
@@ -51,7 +56,47 @@ function SingleVideo() {
         {video
           .filter((item) => item._id !== videoid)
           .map((filteredVideos) => (
-            <div className="cards-example  card-margin">
+            // <div className="cards-example  card-margin">
+            //   <div className="wrapper">
+            //     <div className="top">
+            //       <iframe
+            //         width="100%"
+            //         height="200"
+            //         src={filteredVideos.url}
+            //         title="YouTube video player"
+            //         frameborder="0"
+            //         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            //         allowfullscreen
+            //       ></iframe>
+            //     </div>
+            //     <div className="top-1">
+            //       <h1>{filteredVideos.title}</h1>
+            //       <p>{filteredVideos.creator}</p>
+            //     </div>
+            //     <div className="top-2">
+            //       <p>{filteredVideos.description}</p>
+            //       <img
+            //         onClick={() => AddToLikedVideo(videos, dispatch)}
+            //         className="like-icon"
+            //         src={like_icon}
+            //       />
+            //     </div>
+            //     <div className="top-3">
+            //       <div class="card-button">
+            //         <button
+            //           onClick={() => redirectToSinglePage(filteredVideos._id)}
+            //           class="button-container-button primary-button cart"
+            //         >
+            //           WATCH NOW
+            //         </button>
+            //       </div>
+            //     </div>
+            //   </div>
+            //   <div className="round-image">
+            //     <img className="round" src="" />
+            //   </div>
+            // </div>
+            <div className="cards-example card-margin">
               <div className="wrapper">
                 <div className="top">
                   <iframe
@@ -64,18 +109,24 @@ function SingleVideo() {
                     allowfullscreen
                   ></iframe>
                 </div>
-                <div className="top-1">
-                  <h1>{filteredVideos.title}</h1>
-                  <p>{filteredVideos.creator}</p>
-                </div>
-                <div className="top-2">
-                  <p>{filteredVideos.description}</p>
+                <div className="like-box">
+                  <div className="top-1">
+                    <h1>{filteredVideos.title}</h1>
+                    <p>{filteredVideos.creator}</p>
+                  </div>
+                  <div className="top-2">
+                    <img
+                      onClick={() => AddToLikedVideo(filteredVideos, dispatch)}
+                      className="like-icon"
+                      src={like_icon}
+                    />
+                  </div>
                 </div>
                 <div className="top-3">
                   <div class="card-button">
                     <button
                       onClick={() => redirectToSinglePage(filteredVideos._id)}
-                      class="button-container-button primary-button cart"
+                      class="button-container-button primary-button"
                     >
                       WATCH NOW
                     </button>
@@ -83,7 +134,11 @@ function SingleVideo() {
                 </div>
               </div>
               <div className="round-image">
-                <img className="round" src="" />
+                <img
+                  onClick={() => AddToWatchLater(filteredVideos, dispatch)}
+                  className="round"
+                  src={watchlater_icon}
+                />
               </div>
             </div>
           ))}

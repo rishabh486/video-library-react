@@ -68,7 +68,7 @@
     border: none;
     outline: none;
     object-fit: contain;
-    background-color:gold;
+    /* background-color:gold; */
   }
   .card-img img {
     width: 100%;
@@ -78,9 +78,9 @@
     position: relative;
     width: 35rem;
   }
-  .primary-button{
+  /* .primary-button{
       color:var(--primary-color);
-  }
+  } */
   .video-card{
    margin-top:10vh;
    display:flex;

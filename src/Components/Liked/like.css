@@ -68,7 +68,7 @@
     border: none;
     outline: none;
     object-fit: contain;
-    background-color:gold;
+     background-color:grey; 
   }
   .card-img img {
     width: 100%;
@@ -78,12 +78,22 @@
     position: relative;
     width: 35rem;
   }
-  .primary-button{
+  /* .primary-button{
       color:var(--primary-color);
-  }
+  } */
   .video-card{
    margin-top:10vh;
    display:flex;
    justify-content :space-evenly;
    flex-wrap: wrap;
   } 
+  .like-icon{
+    width:2rem;
+    height:2rem;
+  }
+  .like-box{
+    display: flex;
+    justify-content: space-evenly;
+    
+  } 
+  

@@ -11,7 +11,6 @@ const WatchLaterProvider = ({ children }) => {
     watchlater: [],
     likes: [],
   });
-  console.log(state.watchlater);
   return (
     <WatchLaterContext.Provider value={{ state, dispatch }}>
       {children}

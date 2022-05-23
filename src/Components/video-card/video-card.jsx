@@ -3,7 +3,7 @@ import "./video-card.css"
 import {useNavigate} from "react-router-dom"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
-import { favourite_icon, like_icon } from "../../Assests/index";
+import { favourite_icon, like_icon, watchlater_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
 import {AddToWatchLater,AddToLikedVideo} from "../../Reducers/watch-later"
 function VideoCard() {
@@ -40,7 +40,7 @@ function VideoCard() {
                     <div class="card-button">
             <button
             onClick={()=>redirectToSinglePage(videos._id)}
-                class="button-container-button primary-button cart"
+                class="button-container-button primary-button"
               >WATCH NOW</button>  
               
                 
@@ -53,7 +53,7 @@ function VideoCard() {
                 <img 
                 onClick={()=>AddToWatchLater(videos,dispatch)}
                 className="round"
-                    src={favourite_icon} />
+                    src={watchlater_icon} />
 
             </div>
         </div>

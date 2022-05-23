@@ -1,11 +1,12 @@
 import React from 'react'
 import "./watchlater.css"
 import {useNavigate} from "react-router-dom"
-import { favourite_icon } from "../../Assests/index";
+import { delete_icon, favourite_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
 import {useVideo} from "../../Context/video-context"
+import {RemoveFromWatchLater} from "../../Reducers/watch-later"
 function WatchLater() {
-    const {state:{watchlater}}=useWatchLater()
+    const {state:{watchlater},dispatch}=useWatchLater()
     const{video,state} =useVideo()
     const naviagte=useNavigate()
     function redirectToSinglePage(id){
@@ -36,7 +37,7 @@ function WatchLater() {
                             <div class="card-button">
                                 <button
                                      onClick={()=>redirectToSinglePage(videos._id)}
-                                    class="button-container-button primary-button cart"
+                                    class="button-container-button primary-button"
                                 >WATCH NOW</button>
 
 
@@ -46,8 +47,10 @@ function WatchLater() {
 
                     </div>
                     <div className="round-image">
-                        <img className="round"
-                            src={favourite_icon} />
+                        <img 
+                        onClick={()=>RemoveFromWatchLater(videos._id,dispatch)}
+                        className="round"
+                            src={delete_icon} />
 
                     </div>
                 </div>
