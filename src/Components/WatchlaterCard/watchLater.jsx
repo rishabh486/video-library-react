@@ -1,18 +1,17 @@
 import React from 'react'
 import "./watchlater.css"
 import {useNavigate} from "react-router-dom"
-// import {useVideo} from "../../Context/video-context"
-// import {filterByCategory} from "../../Reducers/filter"
 import { favourite_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
+import {useVideo} from "../../Context/video-context"
 function WatchLater() {
     const {state:{watchlater}}=useWatchLater()
-    console.log(watchlater)
+    const{video,state} =useVideo()
     const naviagte=useNavigate()
     function redirectToSinglePage(id){
         naviagte(`/single-video/${id}`)
     }
-    // const{video,state} =useVideo()
+    
   
   return (<div>
    
@@ -36,7 +35,7 @@ function WatchLater() {
 
                             <div class="card-button">
                                 <button
-                                    // onClick={()=>redirectToSinglePage(videos._id)}
+                                     onClick={()=>redirectToSinglePage(videos._id)}
                                     class="button-container-button primary-button cart"
                                 >WATCH NOW</button>
 

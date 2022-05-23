@@ -3,12 +3,11 @@ import "./video-card.css"
 import {useNavigate} from "react-router-dom"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
-import { favourite_icon } from "../../Assests/index";
+import { favourite_icon, like_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
 import {AddToWatchLater,AddToLikedVideo} from "../../Reducers/watch-later"
 function VideoCard() {
     const {state:{watchlater,likes},dispatch}=useWatchLater()
-    console.log(watchlater)
     const naviagte=useNavigate()
     function redirectToSinglePage(id){
         naviagte(`/single-video/${id}`)
@@ -25,12 +24,16 @@ function VideoCard() {
                 <div className="top">
                 <iframe width="100%" height="200" src={videos.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                <div className='like-box'>
                 <div className="top-1">
                     <h1>{videos.title}</h1>
                     <p>{videos.creator}</p>
                 </div>
                 <div className="top-2">
-                   <img src=""/>
+                   <img 
+                   onClick={()=>AddToLikedVideo(videos,dispatch)}
+                    className="like-icon"src={like_icon}/>
+                </div>
                 </div>
                 <div className="top-3">
                    

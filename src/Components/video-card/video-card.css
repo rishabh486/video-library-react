@@ -87,3 +87,12 @@
    justify-content :space-evenly;
    flex-wrap: wrap;
   } 
+  .like-icon{
+    width:2rem;
+    height:2rem;
+  }
+  .like-box{
+    display: flex;
+    justify-content: space-evenly;
+    
+  }
