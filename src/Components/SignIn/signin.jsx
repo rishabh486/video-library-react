@@ -3,12 +3,11 @@ import   "./signin.css"
 import {useState} from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-import {useAuth} from "../../context/auth-context"
-import {useCart} from "../../context/cart-context"
+import {useAuth} from "../../Context/auth-context"
+
 
 function Signin() {
     const {LoginHandler}=useAuth()
-    const {dispatch:cartDispatch} = useCart()
     const navigate = useNavigate();
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -39,7 +38,7 @@ function Signin() {
                 <input  value={password} onChange={passwordChange}id='password' type="text" class='form-inp' placeholder='********' />
             </div>
             <button onClick={(event) => {
-              event.preventDefault();LoginHandler({ email: email, password: password },cartDispatch)}} type='submit' class='button-container-button primary-button'>SIGNIN</button>
+              event.preventDefault();LoginHandler({ email: email, password: password })}} type='submit' class='button-container-button primary-button'>SIGNIN</button>
         </form>
     </div>
 </div>

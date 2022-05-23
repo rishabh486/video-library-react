@@ -3,6 +3,8 @@ import Navbar from "./Components/Navbar/navbar";
 import VideoPage from "./Pages/VideoPage/VideoPage";
 import { Routes, Route } from "react-router-dom";
 import SingleVideo from "./Pages/SingleVideoPage/SingleVideo";
+import SignInPage from "./Pages/SignInPage/SignInPage";
+import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 function App() {
   return (
     <div className="App">
@@ -10,6 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<VideoPage />} />
         <Route path="/single-video/:videoid" element={<SingleVideo />} />
+        <Route path="/signin-page" element={<SignInPage />} />
+        <Route path="/signup-page" element={<SignUpPage />} />
       </Routes>
     </div>
   );

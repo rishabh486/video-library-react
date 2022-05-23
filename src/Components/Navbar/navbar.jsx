@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import  "./navbar.css"
 import {Link} from "react-router-dom"
+import {useAuth} from "../../Context/auth-context"
 function Navbar() {
+    const {state:{tokenExists,LogOutHandler}}=useAuth()
     function getNavLinks(){
-const[tokenExists,setTokenExists]=useState(true)
         if(tokenExists){
             return(
                 <>
@@ -23,14 +24,15 @@ const[tokenExists,setTokenExists]=useState(true)
                         </div>
                     </div>
                 </a>
-                <a className='logout-button'>Logout</a>
+                <a  onClick={()=>LogOutHandler}className='logout-button'>Logout</a>
 
                 </>
             )
         } else {
             return<>
-                <a >Signin</a> 
-                <a>Signup</a> 
+                <Link to="/signin-page">Signin </Link>
+                <Link to="/signup-page">Signup </Link>
+                
 </>
         }
     }

@@ -13,11 +13,11 @@ const sign = require("jwt-encode");
  * body contains {firstName, lastName, email, password}
  * */
 
-export const signupHandler = function (schema, request) {
+export const signupHandler = async function (schema, request) {
   const { email, password, ...rest } = JSON.parse(request.requestBody);
   try {
     // check if email already exists
-    const foundUser = schema.users.findBy({ email });
+    const foundUser = await schema.users.findBy({ email });
     if (foundUser) {
       return new Response(
         422,
@@ -60,10 +60,12 @@ export const signupHandler = function (schema, request) {
  * body contains {email, password}
  * */
 
-export const loginHandler = function (schema, request) {
+export const loginHandler = async function (schema, request) {
   const { email, password } = JSON.parse(request.requestBody);
+  console.log(request.requestBody);
+  console.log(schema.users.all);
   try {
-    const foundUser = schema.users.findBy({ email });
+    const foundUser = await schema.users.findBy({ email });
     if (!foundUser) {
       return new Response(
         404,
