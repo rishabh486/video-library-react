@@ -4,6 +4,8 @@ export function authReducer(state, action) {
       return { ...state, tokenExists: true };
     case "TOKEN_REMOVED":
       return { ...state, tokenExists: false };
+    case "ADD_TO_WATCH_LATER":
+      return { ...state, watchlater: action.payload.watchlater };
     default:
       return state;
   }

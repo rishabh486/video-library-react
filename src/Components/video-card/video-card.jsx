@@ -4,7 +4,11 @@ import {useNavigate} from "react-router-dom"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
 import { favourite_icon } from "../../Assests/index";
+import {useWatchLater} from "../../Context/watchLater-context"
+import {AddToWatchLater,AddToLikedVideo} from "../../Reducers/watch-later"
 function VideoCard() {
+    const {state:{watchlater,likes},dispatch}=useWatchLater()
+    console.log(watchlater)
     const naviagte=useNavigate()
     function redirectToSinglePage(id){
         naviagte(`/single-video/${id}`)
@@ -26,9 +30,7 @@ function VideoCard() {
                     <p>{videos.creator}</p>
                 </div>
                 <div className="top-2">
-                    <p>
-                    {videos.description}
-                    </p>
+                   <img src=""/>
                 </div>
                 <div className="top-3">
                    
@@ -45,7 +47,9 @@ function VideoCard() {
 
             </div>
             <div className="round-image">
-                <img className="round"
+                <img 
+                onClick={()=>AddToWatchLater(videos,dispatch)}
+                className="round"
                     src={favourite_icon} />
 
             </div>

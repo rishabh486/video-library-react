@@ -11,8 +11,8 @@ import { requiresAuth } from "../utils/authUtils";
  * This handler handles getting videos from user's likes.
  * send GET Request at /api/user/likes
  * */
-export const getLikedVideosHandler = function (schema, request) {
-  const user = requiresAuth.call(this, request);
+export const getLikedVideosHandler = async function (schema, request) {
+  const user = await requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -41,8 +41,8 @@ export const getLikedVideosHandler = function (schema, request) {
  * body contains {video}
  * */
 
-export const addItemToLikedVideos = function (schema, request) {
-  const user = requiresAuth.call(this, request);
+export const addItemToLikedVideos = async function (schema, request) {
+  const user = await requiresAuth.call(this, request);
   if (user) {
     const { video } = JSON.parse(request.requestBody);
     if (user.likes.some((item) => item.id === video.id)) {
@@ -71,8 +71,8 @@ export const addItemToLikedVideos = function (schema, request) {
  * send DELETE Request at /api/user/likes/:videoId
  * */
 
-export const removeItemFromLikedVideos = function (schema, request) {
-  const user = requiresAuth.call(this, request);
+export const removeItemFromLikedVideos = async function (schema, request) {
+  const user = await requiresAuth.call(this, request);
   if (user) {
     const videoId = request.params.videoId;
     const filteredLikes = user.likes.filter((item) => item._id !== videoId);

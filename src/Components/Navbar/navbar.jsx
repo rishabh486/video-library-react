@@ -8,7 +8,7 @@ function Navbar() {
         if(tokenExists){
             return(
                 <>
-                    <a> Watch Later</a>
+                    <Link to="/watchLater-page">Watch Later</Link>
                     <a>
                     <div class="notification">
                         <div class="icon-badge">

@@ -1,5 +1,4 @@
 import { initialState } from "./initial-state";
-
 export const reducerFn = (state, action) => {
   const { filter } = state;
   const { categoryName } = filter;

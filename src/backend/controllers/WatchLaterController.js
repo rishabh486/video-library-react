@@ -12,8 +12,8 @@ import { requiresAuth } from "../utils/authUtils";
  * send GET Request at /api/user/watchlater
  * */
 
-export const getWatchLaterVideosHandler = function (schema, request) {
-  const user = requiresAuth.call(this, request);
+export const getWatchLaterVideosHandler = async function (schema, request) {
+  const user = await requiresAuth.call(this, request);
   try {
     if (!user) {
       return new Response(
@@ -42,8 +42,8 @@ export const getWatchLaterVideosHandler = function (schema, request) {
  * body contains {video}
  * */
 
-export const addItemToWatchLaterVideos = function (schema, request) {
-  const user = requiresAuth.call(this, request);
+export const addItemToWatchLaterVideos = async function (schema, request) {
+  const user = await requiresAuth.call(this, request);
   if (user) {
     const { video } = JSON.parse(request.requestBody);
     if (user.watchlater.some((item) => item.id === video.id)) {
@@ -72,8 +72,8 @@ export const addItemToWatchLaterVideos = function (schema, request) {
  * send DELETE Request at /api/user/watchlater/:videoId
  * */
 
-export const removeItemFromWatchLaterVideos = function (schema, request) {
-  const user = requiresAuth.call(this, request);
+export const removeItemFromWatchLaterVideos = async function (schema, request) {
+  const user = await requiresAuth.call(this, request);
   if (user) {
     const videoId = request.params.videoId;
     const filteredVideos = user.watchlater.filter(
