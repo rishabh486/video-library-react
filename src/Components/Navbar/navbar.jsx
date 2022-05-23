@@ -24,7 +24,7 @@ function Navbar() {
                         </div>
                     </div>
                 </a>
-                <a  onClick={()=>LogOutHandler}className='logout-button'>Logout</a>
+                <a  onClick={LogOutHandler}className='logout-button'>Logout</a>
 
                 </>
             )
@@ -45,7 +45,7 @@ function Navbar() {
 
         <div class="leftside">
             <div class="links">
-             <a href="">Home</a>
+             <Link to="/">Home</Link>
             {getNavLinks()}
             </div>
 
