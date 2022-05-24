@@ -6,21 +6,21 @@ import { v4 as uuid } from "uuid";
 export const videos = [
   {
     _id: uuid(),
-    title: "Awesome Video about Coding",
+    title: "FrontEnd Developer Guide.",
     categoryName: "frontEnd",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.",
     creator: "Traversy Media",
-    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
+    url: "https://www.youtube.com/embed/NrVf8XEihCA",
   },
   {
     _id: uuid(),
-    title: "Neural Networks from Scratch .",
+    title: "Javascript Crash Course .",
     categoryName: "backEnd",
-    creator: "Dev Ed",
+    creator: "Traversy Media",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
-    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
+    url: "https://www.youtube.com/embed/hdI2bqOjy3c",
   },
   {
     _id: uuid(),
@@ -69,20 +69,20 @@ export const videos = [
   },
   {
     _id: uuid(),
-    title: "Neural Networks from Scratch .",
-    categoryName: "algorithms",
-    creator: "Dev Ed",
+    title: "FrontEnd Developer Guide .",
+    categoryName: "frontEnd",
+    creator: "Clever Qazi",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
-    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
+    url: "https://www.youtube.com/embed/NrVf8XEihCA",
   },
   {
     _id: uuid(),
-    title: "Neural Networks from Scratch .",
+    title: "Javascript Crash Course .",
     categoryName: "algorithms",
-    creator: "Dev Ed",
+    creator: "Traversy media",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
-    url: "https://www.youtube.com/embed/c6t3bW7kx6E",
+    url: "https://www.youtube.com/embed/hdI2bqOjy3c",
   },
 ];

@@ -7,6 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import { VideoDataProvider } from "./Context/video-context";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "./Context/auth-context";
+import WatchLater from "./Components/WatchlaterCard/watchLater";
+import { WatchLaterProvider } from "./Context/watchLater-context";
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +16,9 @@ root.render(
     <Router>
       <AuthProvider>
         <VideoDataProvider>
-          <App />
+          <WatchLaterProvider>
+            <App />
+          </WatchLaterProvider>
         </VideoDataProvider>
       </AuthProvider>
     </Router>

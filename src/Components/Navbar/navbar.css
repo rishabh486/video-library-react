@@ -95,6 +95,8 @@
   }
   .icon-img {
     width: 100%;
+    width: 3rem;
+    height: 3rem;
   }
   .icon-badge-number {
     position: absolute;

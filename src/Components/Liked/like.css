@@ -68,7 +68,7 @@
     border: none;
     outline: none;
     object-fit: contain;
-    /* background-color:gold; */
+     background-color:grey; 
   }
   .card-img img {
     width: 100%;
@@ -95,4 +95,5 @@
     display: flex;
     justify-content: space-evenly;
     
-  }
+  } 
+  

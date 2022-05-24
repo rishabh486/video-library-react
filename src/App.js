@@ -5,15 +5,19 @@ import { Routes, Route } from "react-router-dom";
 import SingleVideo from "./Pages/SingleVideoPage/SingleVideo";
 import SignInPage from "./Pages/SignInPage/SignInPage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
+import WatchLater from "./Components/WatchlaterCard/watchLater";
+import LikedVideo from "./Pages/LikedVideoPage/LikedVideo";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<VideoPage />} />
         <Route path="/single-video/:videoid" element={<SingleVideo />} />
         <Route path="/signin-page" element={<SignInPage />} />
         <Route path="/signup-page" element={<SignUpPage />} />
+        <Route path="/watchLater-page" element={<WatchLater />} />
+        <Route path="/likeVideo-page" element={<LikedVideo />} />
       </Routes>
     </div>
   );

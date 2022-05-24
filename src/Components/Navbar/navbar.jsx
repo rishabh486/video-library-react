@@ -2,28 +2,34 @@ import React,{useState} from 'react'
 import  "./navbar.css"
 import {Link} from "react-router-dom"
 import {useAuth} from "../../Context/auth-context"
+import { like_icon } from '../../Assests'
+import {useWatchLater} from "../../Context/watchLater-context"
 function Navbar() {
     const {state:{tokenExists,LogOutHandler}}=useAuth()
+    const {state:{likes}}=useWatchLater()
     function getNavLinks(){
         if(tokenExists){
             return(
                 <>
-                    <a> Watch Later</a>
-                    <a>
+                    <Link to="/watchLater-page">Watch Later</Link>
+                    <Link to="/likeVideo-page">
                     <div class="notification">
                         <div class="icon-badge">
+                            
                             <button type="button" class="icon-button" id="cart-button">
                                 <span>
-                                 <img class="icon-img" src="" />
+                                 <img class="icon-img" src={like_icon} />
                                 </span>
                             </button>
+                           
                             <span class="icon-badge-number">
-                                {}
+                                {likes?.length}
                             </span>
+                            
 
                         </div>
                     </div>
-                </a>
+                    </Link>
                 <a  onClick={LogOutHandler}className='logout-button'>Logout</a>
 
                 </>
