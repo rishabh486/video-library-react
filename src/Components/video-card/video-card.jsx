@@ -3,7 +3,7 @@ import "./video-card.css"
 import {useNavigate} from "react-router-dom"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
-import { favourite_icon, like_icon, watchlater_icon } from "../../Assests/index";
+import { like_icon, playlist_icon, watchlater_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
 import {AddToWatchLater,AddToLikedVideo} from "../../Reducers/watch-later"
 function VideoCard() {
@@ -33,6 +33,11 @@ function VideoCard() {
                    <img 
                    onClick={()=>AddToLikedVideo(videos,dispatch)}
                     className="like-icon"src={like_icon}/>
+                </div>
+                <div className="top-2">
+                   <img 
+                   onClick={()=>AddToLikedVideo(videos,dispatch)}
+                    className="like-icon"src={playlist_icon}/>
                 </div>
                 </div>
                 <div className="top-3">
