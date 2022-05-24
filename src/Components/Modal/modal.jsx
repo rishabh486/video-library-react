@@ -4,7 +4,8 @@ import {AddPlaylist} from "../../Reducers/playlist-reducer"
 import {usePlayList} from "../../Context/playlist-context"
 import "./modal.css";
 const Modal = ({ setIsOpen }) => {
-    const {dispatch}=usePlayList()
+    const {state:{playlists},PlaylistDispatch}=usePlayList()
+    console.log(playlists)
     const [title,setTitle]=useState('')
     const [description,setDescription]=useState('')
     const titleChange=(e)=>{
@@ -25,10 +26,13 @@ const Modal = ({ setIsOpen }) => {
             <h5 className="heading">Playlist</h5>
           </div>
           <button className="closeBtn" onClick={() => setIsOpen(false)}>
-            {/* <RiCloseLine style={{ marginBottom: "-3px" }} /> */}
             <span><img style={{ marginBottom: "-3px" }}src={close_icon}/></span>
           </button>
+          
           <div className="modalContent">
+          <div>
+               {playlists.map((playlist)=>(<p>{playlist.description}</p>))} 
+          </div>
               <div>
           <label for="username">Title</label>
                 <input value={title} onChange={ titleChange} id='username' type="text" class='form-inp' placeholder='title' />
@@ -40,7 +44,7 @@ const Modal = ({ setIsOpen }) => {
           </div>
           <div className="modalActions">
             <div className="actionsContainer">
-              <button className="deleteBtn" onClick={() =>AddPlaylist({title:title,description:description},dispatch) }>
+              <button className="deleteBtn" onClick={() =>AddPlaylist({title:title,description:description},PlaylistDispatch) }>
                 Create
               </button>
               <button

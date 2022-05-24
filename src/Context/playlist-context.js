@@ -6,12 +6,12 @@ const PlayListContext = createContext();
 
 const PlayListProvider = ({ children }) => {
   const { video } = useVideo();
-  const [state, dispatch] = useReducer(authReducer, {
+  const [state, PlaylistDispatch] = useReducer(authReducer, {
     video: video,
     playlists: [],
   });
   return (
-    <PlayListContext.Provider value={{ state, dispatch }}>
+    <PlayListContext.Provider value={{ state, PlaylistDispatch }}>
       {children}
     </PlayListContext.Provider>
   );

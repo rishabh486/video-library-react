@@ -7,9 +7,12 @@ import {filterByCategory} from "../../Reducers/filter"
 import { like_icon, playlist_icon, watchlater_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
 import {AddToWatchLater,AddToLikedVideo} from "../../Reducers/watch-later"
+import { UserPlaylist } from '../../Reducers/playlist-reducer'
+import { usePlayList } from '../../Context/playlist-context'
 function VideoCard() {
     const [isOpen, setIsOpen] = useState(false);
     const {state:{watchlater,likes},dispatch}=useWatchLater()
+    const {PlaylistDispatch}=usePlayList()
     const naviagte=useNavigate()
     function redirectToSinglePage(id){
         naviagte(`/single-video/${id}`)
@@ -38,7 +41,7 @@ function VideoCard() {
                 </div>
                 <div className="top-2">
                    <img 
-                   onClick={() => setIsOpen(true)}
+                   onClick={() => {setIsOpen(true);UserPlaylist(PlaylistDispatch)}}
                     className="like-icon"src={playlist_icon}/>
                 </div>
                 {isOpen && <Modal setIsOpen={setIsOpen} />}
