@@ -44,7 +44,7 @@ function VideoCard() {
                    onClick={() => {setIsOpen(true);UserPlaylist(PlaylistDispatch)}}
                     className="like-icon"src={playlist_icon}/>
                 </div>
-                {isOpen && <Modal setIsOpen={setIsOpen} />}
+                {isOpen && <Modal setIsOpen={setIsOpen} playListVideoId={videos} />}
                 </div>
                 <div className="top-3">
                    

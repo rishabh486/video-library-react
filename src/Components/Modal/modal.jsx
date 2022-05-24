@@ -1,9 +1,9 @@
 import React,{useState} from "react";
-import { close_icon } from "../../Assests";
-import {AddPlaylist} from "../../Reducers/playlist-reducer"
+import { add_icon, close_icon } from "../../Assests";
+import {AddPlaylist, AddVideoToPlaylist} from "../../Reducers/playlist-reducer"
 import {usePlayList} from "../../Context/playlist-context"
 import "./modal.css";
-const Modal = ({ setIsOpen }) => {
+const Modal = ({ setIsOpen,playListVideoId }) => {
     const {state:{playlists},PlaylistDispatch}=usePlayList()
     console.log(playlists)
     const [title,setTitle]=useState('')
@@ -31,7 +31,10 @@ const Modal = ({ setIsOpen }) => {
           
           <div className="modalContent">
           <div>
-               {playlists.map((playlist)=>(<p>{playlist.description}</p>))} 
+               {playlists.map((playlist)=>(<div className="add-to-playlist"><p>{playlist.title}</p>
+               <img 
+               onClick={()=>AddVideoToPlaylist(playlist._id,playListVideoId,PlaylistDispatch)}
+               className="add-icon" src={add_icon}/></div>))} 
           </div>
               <div>
           <label for="username">Title</label>

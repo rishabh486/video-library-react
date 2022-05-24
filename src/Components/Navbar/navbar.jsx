@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import  "./navbar.css"
 import {Link} from "react-router-dom"
 import {useAuth} from "../../Context/auth-context"
-import { like_icon } from '../../Assests'
+import { like_icon, playlist_icon } from '../../Assests'
 import {useWatchLater} from "../../Context/watchLater-context"
 function Navbar() {
     const {state:{tokenExists,LogOutHandler}}=useAuth()
@@ -30,7 +30,26 @@ function Navbar() {
                         </div>
                     </div>
                     </Link>
-                <a  onClick={LogOutHandler}className='logout-button'>Logout</a>
+                    <div class="notification">
+                        <Link to="/playlist-page">
+                        <div class="icon-badge">
+                            
+                            <button type="button" class="icon-button" id="cart-button">
+                                <span>
+                                 <img class="icon-img" src={playlist_icon} />
+                                </span>
+                            </button>
+                           
+                            <span class="icon-badge-number">
+                                {likes?.length}
+                            </span>
+                            
+
+                        </div>
+                        </Link>
+                    </div>
+                    
+                   <a  onClick={LogOutHandler}className='logout-button'>Logout</a>
 
                 </>
             )

@@ -7,6 +7,7 @@ import SignInPage from "./Pages/SignInPage/SignInPage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import WatchLater from "./Components/WatchlaterCard/watchLater";
 import LikedVideo from "./Pages/LikedVideoPage/LikedVideo";
+import PlaylistPage from "./Pages/Playlistpage/PlaylistPage";
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup-page" element={<SignUpPage />} />
         <Route path="/watchLater-page" element={<WatchLater />} />
         <Route path="/likeVideo-page" element={<LikedVideo />} />
+        <Route path="/playlist-page" element={<PlaylistPage />} />
       </Routes>
     </div>
   );

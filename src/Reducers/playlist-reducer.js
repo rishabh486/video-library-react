@@ -39,3 +39,23 @@ export const UserPlaylist = async (dispatch) => {
     console.log(err);
   }
 };
+export const AddVideoToPlaylist = async (id, video, dispatch) => {
+  try {
+    const response = await axios.post(
+      `/api/user/playlists/${id}`,
+      { video },
+      {
+        headers: {
+          authorization: localStorage.getItem("videolib-token"),
+        },
+      }
+    );
+    console.log(response.data);
+    dispatch({
+      type: "ADD_VIDEO_TO_PLAYLIST",
+      payload: { playlists: response.data.playlists },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
