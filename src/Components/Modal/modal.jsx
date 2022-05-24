@@ -5,7 +5,6 @@ import {usePlayList} from "../../Context/playlist-context"
 import "./modal.css";
 const Modal = ({ setIsOpen,playListVideoId }) => {
     const {state:{playlists},PlaylistDispatch}=usePlayList()
-    console.log(playlists)
     const [title,setTitle]=useState('')
     const [description,setDescription]=useState('')
     const titleChange=(e)=>{

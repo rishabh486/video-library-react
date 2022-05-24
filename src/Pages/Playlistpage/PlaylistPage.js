@@ -6,13 +6,14 @@ function PlaylistPage() {
     state: { playlists },
     PlaylistDispatch,
   } = usePlayList();
+  console.log(playlists[0].videos[0].title);
   return (
     <div>
       <div>
         {playlists.map((playlist) => (
           <div>
             <p>{playlist.title}</p>
-            <p>{playlist.description}</p>
+            <p>{playlist.title}</p>
           </div>
         ))}
         <h1></h1>
