@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./video-card.css"
+import Modal from '../Modal/modal'
 import {useNavigate} from "react-router-dom"
 import {useVideo} from "../../Context/video-context"
 import {filterByCategory} from "../../Reducers/filter"
@@ -7,6 +8,7 @@ import { like_icon, playlist_icon, watchlater_icon } from "../../Assests/index";
 import {useWatchLater} from "../../Context/watchLater-context"
 import {AddToWatchLater,AddToLikedVideo} from "../../Reducers/watch-later"
 function VideoCard() {
+    const [isOpen, setIsOpen] = useState(false);
     const {state:{watchlater,likes},dispatch}=useWatchLater()
     const naviagte=useNavigate()
     function redirectToSinglePage(id){
@@ -36,9 +38,10 @@ function VideoCard() {
                 </div>
                 <div className="top-2">
                    <img 
-                   onClick={()=>AddToLikedVideo(videos,dispatch)}
+                   onClick={() => setIsOpen(true)}
                     className="like-icon"src={playlist_icon}/>
                 </div>
+                {isOpen && <Modal setIsOpen={setIsOpen} />}
                 </div>
                 <div className="top-3">
                    
