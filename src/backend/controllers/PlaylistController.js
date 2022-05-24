@@ -46,6 +46,7 @@ export const addNewPlaylistHandler = async function (schema, request) {
   const user = await requiresAuth.call(this, request);
   if (user) {
     const { playlist } = JSON.parse(request.requestBody);
+    console.log(request.requestBody);
     user.playlists.push({ ...playlist, videos: [], _id: uuid() });
     return new Response(201, {}, { playlists: user.playlists });
   }

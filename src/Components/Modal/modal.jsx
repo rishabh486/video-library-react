@@ -1,7 +1,21 @@
-import React from "react";
+import React,{useState} from "react";
 import { close_icon } from "../../Assests";
+import {AddPlaylist} from "../../Reducers/playlist-reducer"
+import {usePlayList} from "../../Context/playlist-context"
 import "./modal.css";
 const Modal = ({ setIsOpen }) => {
+    const {dispatch}=usePlayList()
+    const [title,setTitle]=useState('')
+    const [description,setDescription]=useState('')
+    const titleChange=(e)=>{
+        setTitle(e.target.value)
+
+    }
+   
+    const DescriptionChange=(e)=>{
+        setDescription(e.target.value)
+
+    }
   return (
     <>
       <div className="darkBG" onClick={() => setIsOpen(false)} />
@@ -15,15 +29,19 @@ const Modal = ({ setIsOpen }) => {
             <span><img style={{ marginBottom: "-3px" }}src={close_icon}/></span>
           </button>
           <div className="modalContent">
+              <div>
           <label for="username">Title</label>
-                <input value=""  id='username' type="text" class='form-inp' placeholder='title' />
+                <input value={title} onChange={ titleChange} id='username' type="text" class='form-inp' placeholder='title' />
+                </div>
+                <div>
                 <label for="username">Description</label>
-                <input value=""  id='username' type="text" class='form-inp' placeholder='description' />
+                <input value={description} onChange={DescriptionChange} id='username' type="text" class='form-inp' placeholder='description' />
+                </div>
           </div>
           <div className="modalActions">
             <div className="actionsContainer">
-              <button className="deleteBtn" onClick={() => setIsOpen(false)}>
-                Delete
+              <button className="deleteBtn" onClick={() =>AddPlaylist({title:title,description:description},dispatch) }>
+                Create
               </button>
               <button
                 className="cancelBtn"

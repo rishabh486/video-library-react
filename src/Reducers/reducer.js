@@ -12,6 +12,8 @@ export function authReducer(state, action) {
       return { ...state, likes: action.payload.likes };
     case "REMOVE_FROM_WATCH_LATER":
       return { ...state, watchlater: action.payload.watchlater };
+    case "ADD_NEW_PLAYLIST":
+      return { ...state, playlists: action.payload.playlists };
     default:
       return state;
   }
