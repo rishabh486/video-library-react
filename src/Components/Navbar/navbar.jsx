@@ -29,17 +29,19 @@ function Navbar() {
               </div>
             </div>
           </Link>
-          <div class="notification">
-            <div class="icon-badge">
-              <button type="button" class="icon-button" id="cart-button">
-                <span>
-                  <img class="icon-img" src={playlist_icon} />
-                </span>
-              </button>
+          <Link to="/playlist-page">
+            <div class="notification">
+              <div class="icon-badge">
+                <button type="button" class="icon-button" id="cart-button">
+                  <span>
+                    <img class="icon-img" src={playlist_icon} />
+                  </span>
+                </button>
 
-              <span class="icon-badge-number"></span>
+                <span class="icon-badge-number"></span>
+              </div>
             </div>
-          </div>
+          </Link>
 
           <a onClick={LogOutHandler} className="logout-button">
             Logout
