@@ -16,7 +16,6 @@ function PlaylistPage() {
           return (
             <div>
               <p className="playlist-title">{play.title}</p>
-              {/* <p>{play.description}</p> */}
 
               {play.videos.map((video) => (
                 <>
@@ -39,11 +38,11 @@ function PlaylistPage() {
                           <p>{video.creator}</p>
                         </div>
                         <div className="top-2">
-                          <img
-                            onClick={() => AddToLikedVideo(videos, dispatch)}
+                          {/* <img
+                            onClick={() => AddToLikedVideo(video, dispatch)}
                             className="like-icon"
                             src={like_icon}
-                          />
+                          /> */}
                         </div>
                         <div className="top-2">
                           <img
