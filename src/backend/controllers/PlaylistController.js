@@ -123,6 +123,7 @@ export const addVideoToPlaylistHandler = async function (schema, request) {
       );
     }
     playlist.videos.push(video);
+    console.log(playlist);
     return new Response(201, {}, { playlist });
   }
   return new Response(

@@ -4,3 +4,10 @@
 p
 {
     /* font-size:2rem; */
+.playlist-title {
+  font-size: 2rem;
+}
+.playlist-card {
+  display: flex;
+  margin: 1rem;
+}

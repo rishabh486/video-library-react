@@ -1,23 +1,98 @@
 import React from "react";
 import "./Playlistpage.css";
 import { usePlayList } from "../../Context/playlist-context";
+import { like_icon, delete_icon, watchlater_icon } from "../../Assests";
 function PlaylistPage() {
   const {
     state: { playlists },
     PlaylistDispatch,
   } = usePlayList();
-  console.log(playlists[0].videos[0].title);
+  // console.log(state.playlists[0].videos[0].title);
+  console.log(playlists);
   return (
     <div>
-      <div>
-        {playlists.map((playlist) => (
-          <div>
-            <p>{playlist.title}</p>
-            <p>{playlist.title}</p>
-          </div>
-        ))}
-        <h1></h1>
-      </div>
+      {playlists &&
+        playlists.map((play) => {
+          return (
+            <div>
+              <p className="playlist-title">{play.title}</p>
+              {/* <p>{play.description}</p> */}
+
+              {play.videos.map((video) => (
+                <>
+                  <div className="cards-example card-margin playlist-card">
+                    <div className="wrapper">
+                      <div className="top">
+                        <iframe
+                          width="100%"
+                          height="200"
+                          src={video.url}
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                      <div className="like-box">
+                        <div className="top-1">
+                          <h1>{video.title}</h1>
+                          <p>{video.creator}</p>
+                        </div>
+                        <div className="top-2">
+                          <img
+                            onClick={() => AddToLikedVideo(videos, dispatch)}
+                            className="like-icon"
+                            src={like_icon}
+                          />
+                        </div>
+                        <div className="top-2">
+                          <img
+                            // onClick={() => {
+                            //   setIsOpen(true);
+                            //   UserPlaylist(PlaylistDispatch);
+                            //   addVideo(videos);
+                            // {
+                            //   isOpen && (
+                            //     <Modal setIsOpen={setIsOpen} onCurrentVideo={videos} />
+                            //   );
+                            // }
+
+                            className="like-icon"
+                            src={delete_icon}
+                          />
+                          {/* {isOpen && (
+                  <Modal setIsOpen={setIsOpen} CurrentVideo={currentVideo} />
+                )} */}
+                        </div>
+                        {/* {isOpen && (
+                <Modal setIsOpen={setIsOpen} onCurrentVideo={videos} />
+              )} */}
+                      </div>
+                      <div className="top-3">
+                        <div class="card-button">
+                          <button
+                            // onClick={() => redirectToSinglePage(videos._id)}
+                            class="button-container-button primary-button"
+                          >
+                            WATCH NOW
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="round-image">
+                      <img
+                        // onClick={() => AddToWatchLater(videos, dispatch)}
+                        className="round"
+                        src={watchlater_icon}
+                      />
+                    </div>
+                  </div>
+                  {/* <p>{video.title}</p> */}
+                </>
+              ))}
+            </div>
+          );
+        })}
     </div>
   );
 }

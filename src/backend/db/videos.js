@@ -78,9 +78,9 @@ export const videos = [
   },
   {
     _id: uuid(),
-    title: "Javascript Crash Course .",
+    title: "ruby Crash Course .",
     categoryName: "algorithms",
-    creator: "Traversy media",
+    creator: "colt stee",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium .",
     url: "https://www.youtube.com/embed/hdI2bqOjy3c",
