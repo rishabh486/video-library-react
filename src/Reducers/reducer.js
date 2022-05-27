@@ -18,6 +18,8 @@ export function authReducer(state, action) {
       return { ...state, playlists: action.payload.playlists };
     case "ADD_VIDEO_TO_PLAYLIST":
       return { ...state, playlist: action.payload.playlist };
+    case "REMOVE_VIDEO_FROM_USER_PLAYLIST":
+      return { ...state, playlists: action.payload.playlists };
     default:
       return state;
   }

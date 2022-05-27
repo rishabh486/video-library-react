@@ -59,3 +59,40 @@ export const AddVideoToPlaylist = async (id, video, dispatch) => {
     console.log(err);
   }
 };
+
+export const RemoveVideoFromUserplaylist = async (id, id1, dispatch) => {
+  try {
+    const response = await axios.delete(`/api/user/playlists/${id}/${id1}`, {
+      headers: {
+        authorization: localStorage.getItem("videolib-token"),
+      },
+    });
+    dispatch({
+      type: "REMOVE_VIDEO_FROM_USER_PLAYLIST",
+      payload: { playlists: response.data.playlists },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const UserPlaylistVideo = async (id, dispatch) => {
+  try {
+    const response = await axios.get(
+      `/api/user/playlists/${id}`,
+
+      {
+        headers: {
+          authorization: localStorage.getItem("videolib-token"),
+        },
+      }
+    );
+    console.log(response.data);
+    dispatch({
+      type: "GET_USER_VIDEO",
+      payload: { playlists: response.data.playlists },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -37,22 +37,23 @@ const Modal = ({ setIsOpen, CurrentVideo }) => {
 
           <div className="modalContent">
             <div>
-              {playlists.map((playlist) => (
-                <div className="add-to-playlist">
-                  <p>{playlist.title}</p>
-                  <img
-                    onClick={() =>
-                      AddVideoToPlaylist(
-                        playlist._id,
-                        CurrentVideo,
-                        PlaylistDispatch
-                      )
-                    }
-                    className="add-icon"
-                    src={add_icon}
-                  />
-                </div>
-              ))}
+              {playlists &&
+                playlists.map((list) => (
+                  <div className="add-to-playlist">
+                    <p>{list.title}</p>
+                    <img
+                      onClick={() =>
+                        AddVideoToPlaylist(
+                          list._id,
+                          CurrentVideo,
+                          PlaylistDispatch
+                        )
+                      }
+                      className="add-icon"
+                      src={add_icon}
+                    />
+                  </div>
+                ))}
             </div>
             <div>
               <label for="username">Title</label>

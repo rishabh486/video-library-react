@@ -2,12 +2,12 @@ import React from "react";
 import "./Playlistpage.css";
 import { usePlayList } from "../../Context/playlist-context";
 import { like_icon, delete_icon, watchlater_icon } from "../../Assests";
+import { RemoveVideoFromUserplaylist } from "../../Reducers/playlist-reducer";
 function PlaylistPage() {
   const {
     state: { playlists },
     PlaylistDispatch,
   } = usePlayList();
-  // console.log(state.playlists[0].videos[0].title);
   console.log(playlists);
   return (
     <div>
@@ -47,26 +47,17 @@ function PlaylistPage() {
                         </div>
                         <div className="top-2">
                           <img
-                            // onClick={() => {
-                            //   setIsOpen(true);
-                            //   UserPlaylist(PlaylistDispatch);
-                            //   addVideo(videos);
-                            // {
-                            //   isOpen && (
-                            //     <Modal setIsOpen={setIsOpen} onCurrentVideo={videos} />
-                            //   );
-                            // }
-
+                            onClick={() =>
+                              RemoveVideoFromUserplaylist(
+                                playlists._id,
+                                video._id,
+                                PlaylistDispatch
+                              )
+                            }
                             className="like-icon"
                             src={delete_icon}
                           />
-                          {/* {isOpen && (
-                  <Modal setIsOpen={setIsOpen} CurrentVideo={currentVideo} />
-                )} */}
                         </div>
-                        {/* {isOpen && (
-                <Modal setIsOpen={setIsOpen} onCurrentVideo={videos} />
-              )} */}
                       </div>
                       <div className="top-3">
                         <div class="card-button">
