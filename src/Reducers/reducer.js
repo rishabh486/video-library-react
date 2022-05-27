@@ -12,6 +12,14 @@ export function authReducer(state, action) {
       return { ...state, likes: action.payload.likes };
     case "REMOVE_FROM_WATCH_LATER":
       return { ...state, watchlater: action.payload.watchlater };
+    case "ADD_NEW_PLAYLIST":
+      return { ...state, playlists: action.payload.playlists };
+    case "GET_USER_PLAYLIST":
+      return { ...state, playlists: action.payload.playlists };
+    case "ADD_VIDEO_TO_PLAYLIST":
+      return { ...state, playlist: action.payload.playlist };
+    case "REMOVE_VIDEO_FROM_USER_PLAYLIST":
+      return { ...state, playlists: action.payload.playlists };
     default:
       return state;
   }
