@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "./Context/auth-context";
 import WatchLater from "./Components/WatchlaterCard/watchLater";
 import { WatchLaterProvider } from "./Context/watchLater-context";
+import { PlayListProvider } from "./Context/playlist-context";
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +18,9 @@ root.render(
       <AuthProvider>
         <VideoDataProvider>
           <WatchLaterProvider>
-            <App />
+            <PlayListProvider>
+              <App />
+            </PlayListProvider>
           </WatchLaterProvider>
         </VideoDataProvider>
       </AuthProvider>
