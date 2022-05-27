@@ -7,7 +7,6 @@ import "./VideoPage.css";
 function VideoPage() {
   return (
     <>
-      <Navbar />
       <Sidebar />
       <div className="video-flex">
         <VideoCard />
