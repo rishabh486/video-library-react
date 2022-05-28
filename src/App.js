@@ -1,4 +1,5 @@
 import "./App.css";
+import { Toastr } from "./Components/toastr";
 import Navbar from "./Components/Navbar/navbar";
 import VideoPage from "./Pages/VideoPage/VideoPage";
 import { Routes, Route } from "react-router-dom";
@@ -11,6 +12,7 @@ import PlaylistPage from "./Pages/PlaylistPage/PlaylistPage";
 function App() {
   return (
     <div className="App">
+      <Toastr />
       <Navbar />
       <Routes>
         <Route path="/" element={<VideoPage />} />

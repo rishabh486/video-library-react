@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify";
+
 export const AddPlaylist = async (params, dispatch) => {
   try {
     const response = await axios.post(
@@ -15,6 +17,7 @@ export const AddPlaylist = async (params, dispatch) => {
       type: "ADD_NEW_PLAYLIST",
       payload: { playlists: response.data.playlists },
     });
+    toast.success("New Playlist Created");
   } catch (err) {
     console.log(err);
   }
@@ -53,10 +56,12 @@ export const AddVideoToPlaylist = async (id, video, dispatch) => {
     console.log(response.data);
     dispatch({
       type: "ADD_VIDEO_TO_PLAYLIST",
-      payload: { playlist: response.data.playlist },
+      payload: { playlists: response.data.playlists },
     });
+    toast.success("Video Added to Playlist");
   } catch (err) {
-    console.log(err);
+    toast.error(err.response.data.errors[0]);
+    console.log(err.response.data.errors[0]);
   }
 };
 

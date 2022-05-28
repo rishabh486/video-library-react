@@ -48,7 +48,7 @@ function PlaylistPage() {
                           <img
                             onClick={() =>
                               RemoveVideoFromUserplaylist(
-                                playlists._id,
+                                play._id,
                                 video._id,
                                 PlaylistDispatch
                               )
